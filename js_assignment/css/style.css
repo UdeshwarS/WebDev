@@ -1,0 +1,751 @@
+/*
+    Udeshwar Singh Sandhu
+    March 18, 2026
+    Stylesheet for the Campus Cart Tycoon JavaScript assignment.
+    It controls the layout, cards,
+    buttons, pop-up modals, and screen styling.
+*/
+
+:root {
+    --bg-top: #f5fbff;
+    --bg-bottom: #dcecff;
+    --panel: #ffffff;
+    --panel-border: #b8d8ff;
+    --primary: #2f6df6;
+    --primary-dark: #1f4fc8;
+    --accent: #ffd24d;
+    --accent-strong: #ffb400;
+    --accent-soft: #fff7da;
+    --text: #18314f;
+    --muted: #5b6d88;
+    --danger: #d9485a;
+    --shadow: 0 18px 40px rgba(37, 77, 151, 0.16);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top, #ffffff 0%, var(--bg-top) 24%, var(--bg-bottom) 100%);
+}
+
+button {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+ul {
+    margin: 0;
+    padding-left: 1.15rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app-shell {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1rem 0.8rem;
+    display: flex;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+}
+
+.screen.active {
+    display: block;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+}
+
+.splash-panel,
+.end-panel {
+    min-height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.game-panel {
+    min-height: calc(100vh - 2rem);
+}
+
+.eyebrow {
+    margin-bottom: 0.35rem;
+    color: var(--primary);
+    font-size: 0.84rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    margin-bottom: 0.4rem;
+    font-family: "Arial Black", "Trebuchet MS", Arial, sans-serif;
+    line-height: 1.06;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.48rem;
+}
+
+.subtitle,
+.final-message {
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.small-note {
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.45;
+}
+
+#splash-canvas {
+    width: 100%;
+    max-width: 360px;
+    margin: 0.9rem auto 0.85rem;
+    display: block;
+    border: 1px solid #c9dbff;
+    border-radius: 24px;
+    background: #eaf2ff;
+}
+
+.top-bar,
+.brand-box,
+.toolbar,
+.progress-label-row,
+.price-section,
+.price-controls,
+.mini-stats,
+.section-heading-row,
+.report-heading-row {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar,
+.progress-section,
+.daily-layout,
+.price-section,
+.actions-section,
+.report-section,
+.final-stats,
+.history-section {
+    margin-top: 0.95rem;
+}
+
+.top-bar {
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.brand-box {
+    gap: 0.7rem;
+    min-width: 0;
+    flex: 1 1 220px;
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.brand-copy h2 {
+    font-size: 1.42rem;
+}
+
+.brand-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fff7dc 0%, #ffe28c 100%);
+    padding: 0.45rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 180, 0, 0.25);
+    object-fit: contain;
+}
+
+.toolbar {
+    gap: 0.5rem;
+    flex: 0 0 auto;
+}
+
+.toolbar-button {
+    padding: 0.65rem 0.85rem;
+    min-width: 82px;
+}
+
+.status-grid,
+.final-stats,
+.action-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.final-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stat-card,
+.report-section,
+.progress-section,
+.price-section,
+.history-section {
+    border-radius: 20px;
+    border: 1px solid #dbe8ff;
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+}
+
+.stat-card {
+    padding: 0.85rem 0.9rem;
+}
+
+.weather-card {
+    grid-column: 1 / -1;
+}
+
+.stat-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.24rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.weather-note {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+.progress-section,
+.price-section,
+.report-section,
+.history-section {
+    padding: 0.95rem;
+}
+
+.progress-label-row {
+    justify-content: space-between;
+    margin-bottom: 0.55rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.week-progress-track {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.45rem;
+}
+
+.week-step {
+    height: 14px;
+    border-radius: 999px;
+    background: #e4ecff;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.week-step.active {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-strong) 100%);
+}
+
+.week-progress-labels {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-top: 0.45rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+.daily-layout {
+    margin-top: 0.95rem;
+}
+
+.daily-layout .price-section,
+.daily-layout .actions-section,
+.daily-layout .report-section {
+    margin-top: 0;
+}
+
+.controls-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+.actions-heading {
+    margin-bottom: 0.65rem;
+}
+
+.report-desktop {
+    display: none;
+}
+
+.report-mobile {
+    padding: 0.8rem;
+}
+
+.report-mobile .report-heading-row {
+    margin-bottom: 0.25rem;
+}
+
+.report-mobile .report-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.report-mobile .report-text {
+    margin-bottom: 0;
+    font-size: 0.84rem;
+    line-height: 1.35;
+}
+
+.price-section {
+    justify-content: space-between;
+    gap: 0.85rem;
+}
+
+.section-copy {
+    min-width: 0;
+}
+
+.section-heading-row,
+.report-heading-row {
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.section-title {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.price-controls {
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.price-value {
+    min-width: 68px;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.primary-button,
+.secondary-button,
+.action-button,
+.icon-button,
+.history-button {
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.action-button:hover,
+.icon-button:hover,
+.history-button:hover {
+    transform: translateY(-1px);
+}
+
+.primary-button:active,
+.secondary-button:active,
+.action-button:active,
+.icon-button:active,
+.history-button:active {
+    transform: translateY(0);
+}
+
+.primary-button {
+    padding: 0.95rem 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(47, 109, 246, 0.22);
+}
+
+.secondary-button,
+.price-button,
+.icon-button {
+    padding: 0.8rem 0.9rem;
+    background: #eef4ff;
+    color: var(--primary-dark);
+    border: 1px solid #d2e1ff;
+    font-weight: bold;
+}
+
+.price-button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+
+.actions-section {
+    padding-top: 0.1rem;
+}
+
+.action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.65rem;
+}
+
+.action-button {
+    padding: 0.95rem 0.85rem;
+    text-align: left;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+    border: 1px solid #dbe8ff;
+}
+
+.action-name {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+}
+
+.action-detail {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.35;
+}
+
+.open-button {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.inline-icon,
+.report-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.report-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.report-text {
+    margin-bottom: 0.65rem;
+    line-height: 1.5;
+}
+
+.mini-stats {
+    justify-content: space-between;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.history-button {
+    width: 100%;
+    text-align: left;
+    background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+    color: var(--text);
+}
+
+.history-title {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1.02rem;
+    font-weight: bold;
+}
+
+.history-note {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.history-list {
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.history-list li+li {
+    margin-top: 0.35rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(16, 33, 66, 0.5);
+}
+
+.modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    padding: 1.2rem 1rem 1rem;
+    border-radius: 22px;
+    border: 1px solid #d2e1ff;
+    background: #ffffff;
+    box-shadow: 0 22px 44px rgba(17, 34, 77, 0.26);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.help-list {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.modal-scroll {
+    max-height: 52vh;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.history-modal-list {
+    padding-bottom: 0.15rem;
+}
+
+#week-label {
+    font-size: 0.92rem;
+}
+
+.asset-preload {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (min-width: 481px) {
+    .app-shell {
+        max-width: 920px;
+        padding: 1rem;
+    }
+
+    .brand-icon {
+        position: relative;
+        top: -8px;
+    }
+
+    .panel {
+        padding: 1.15rem;
+    }
+
+    .splash-panel,
+    .end-panel {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    #splash-canvas {
+        max-width: 500px;
+    }
+
+    .brand-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .brand-copy h2 {
+        font-size: 1.44rem;
+    }
+
+    .status-grid {
+        gap: 0.9rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.34rem;
+    }
+
+    .weather-note {
+        font-size: 0.95rem;
+    }
+
+    .progress-section {
+        padding: 1rem;
+    }
+
+    .week-step {
+        height: 16px;
+    }
+
+    .daily-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.95rem;
+        align-items: stretch;
+    }
+
+    .report-desktop {
+        display: block;
+    }
+
+    .report-mobile {
+        display: none;
+    }
+
+    .report-desktop {
+        min-height: 240px;
+    }
+
+    .controls-column {
+        min-width: 0;
+    }
+
+    .actions-section {
+        padding: 0.95rem;
+        border-radius: 20px;
+        border: 1px solid #dbe8ff;
+        background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    }
+
+    .action-grid {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolbar {
+        position: relative;
+        top: -6px;
+    }
+
+    .report-mobile {
+        display: block;
+    }
+
+    .report-mobile .section-title {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .app-shell {
+        padding: 0.7rem 0.55rem;
+    }
+
+    .panel {
+        border-radius: 22px;
+        padding: 0.85rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    .top-bar,
+    .price-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toolbar {
+        width: 100%;
+    }
+
+    .toolbar-button {
+        flex: 1 1 0;
+    }
+
+    .action-grid,
+    .final-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .open-button {
+        grid-column: auto;
+    }
+
+    .brand-copy h2 {
+        font-size: 1.24rem;
+    }
+
+    .price-controls {
+        justify-content: center;
+    }
+}
