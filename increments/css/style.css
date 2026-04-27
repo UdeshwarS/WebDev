@@ -1,0 +1,372 @@
+/* Names: Ayesha Hasan and Udeshwar Singh Sandhu
+Date: February 27, 2026
+JS Pair Assignment external css stylesheet */
+
+:root {
+    --bg1: #0f172a;      /* slate-900 */
+    --bg2: #1e3a8a;      /* blue-900 */
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;    /* slate-500 */
+    --border: rgba(15, 23, 42, 0.10);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+    --accent: #f59e0b;   /* amber-500 */
+    --accent2: #fb7185;  /* rose-400 (small highlight option) */
+    --success: #16a34a;  /* green-600 */
+
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: radial-gradient(1200px 800px at 20% 10%, rgba(59, 130, 246, 0.30), transparent 55%),
+                radial-gradient(900px 600px at 90% 25%, rgba(245, 158, 11, 0.25), transparent 55%),
+                linear-gradient(135deg, var(--bg1), var(--bg2));
+    color: var(--text);
+    min-height: 100vh;
+    padding: 28px;
+    user-select: none;
+}
+
+/* ---------- Header / Top band ---------- */
+
+#top_band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    max-width: 1200px;
+    margin: 0 auto 18px auto;
+
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+#name {
+    font-size: 28px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    color: white;
+}
+
+/* Make rewards messages act like modern “toast” notifications */
+#rewards {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none; /* clicks go through */
+}
+
+#rewards p {
+    display: none;
+    width: min(560px, calc(100vw - 32px));
+
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: var(--shadow);
+
+    animation: toastIn 0.22s ease-out;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+#help {
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#help:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+#instructions {
+    max-width: 1200px;
+    margin: 0 auto 18px auto;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 18px;
+
+    box-shadow: var(--shadow);
+}
+
+#instructions h2 {
+    margin-bottom: 10px;
+}
+
+#instructions h3 {
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+#instructions ul {
+    margin-left: 18px;
+    color: var(--text);
+}
+
+#instructions li {
+    margin: 6px 0;
+    color: var(--muted);
+}
+
+/* ---------- Main layout ---------- */
+
+#game {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+#left_screen {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#upgrade_area {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+
+    box-shadow: var(--shadow);
+}
+
+/* ---------- Cards (score, click, rewards) ---------- */
+
+#score_area,
+#click_area,
+#rewards_area {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+
+    box-shadow: var(--shadow);
+}
+
+#score_area h2,
+#upgrade_area h2,
+#rewards_area h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+#scoreboard {
+    display: flex;
+    gap: 28px;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.tracker {
+    flex: 1 1 140px;
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.70);
+}
+
+.tracker img {
+    width: 82px;
+    height: auto;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.10));
+}
+
+.font {
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.num {
+    display: block;
+    margin-top: 4px;
+    font-size: 22px;
+    color: #b45309; /* amber-700-ish */
+    font-weight: 900;
+}
+
+/* ---------- Click box ---------- */
+
+#click_area {
+    text-align: center;
+    padding: 22px;
+}
+
+#click_box {
+    width: clamp(240px, 55%, 380px);
+    cursor: pointer;
+    transition: transform 0.10s ease, filter 0.10s ease;
+    filter: drop-shadow(0 18px 18px rgba(0,0,0,0.18));
+}
+
+#click_box:hover {
+    transform: translateY(-2px);
+}
+
+#click_box:active {
+    transform: translateY(0) scale(0.96);
+}
+
+#guide {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+/* ---------- Rewards section ---------- */
+
+#badgesTrophies {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+}
+
+#badgesTrophies > div {
+    flex: 1 1 120px;
+    padding: 10px 8px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.70);
+}
+
+.badge {
+    width: 78px;
+    height: auto;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.12));
+}
+
+.font2 {
+    margin-top: 8px;
+    color: #94a3b8; /* slate-400 */
+    font-weight: 800;
+    font-size: 12px;
+}
+
+/* ---------- Upgrade cards ---------- */
+
+.upgrades {
+    margin: 10px 0;
+    border-radius: 14px;
+    padding: 12px 12px;
+
+    background: rgba(245, 158, 11, 0.16);
+    border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.upgrades h3 {
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.upgrades p {
+    font-size: 13px;
+    color: rgba(15, 23, 42, 0.75);
+    margin: 3px 0;
+}
+
+.buttons {
+    appearance: none;
+    border: none;
+    border-radius: 12px;
+
+    padding: 10px 12px;
+    margin-top: 8px;
+
+    font-weight: 900;
+    cursor: pointer;
+
+    background: var(--accent);
+    color: #111827;
+
+    box-shadow: 0 8px 18px rgba(245, 158, 11, 0.35);
+    transition: transform 0.08s ease, filter 0.08s ease, opacity 0.08s ease;
+}
+
+.buttons:hover {
+    filter: brightness(1.02);
+    transform: translateY(-1px);
+}
+
+.buttons:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.buttons:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 980px) {
+    #game {
+        flex-direction: column;
+    }
+
+    #left_screen, #upgrade_area {
+        width: 100%;
+    }
+
+    #badgesTrophies {
+        flex-wrap: wrap;
+    }
+
+    #badgesTrophies > div {
+        flex: 1 1 140px;
+    }
+}
