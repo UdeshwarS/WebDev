@@ -1,0 +1,219 @@
+/*
+    Udeshwar Singh Sandhu
+    April 5, 2026
+    Shared PHP page styling for login and leaderboard views.
+*/
+.server-page {
+    min-height: 100vh;
+}
+
+.server-shell {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.server-panel {
+    min-height: calc(100vh - 2rem);
+}
+
+.server-stack,
+.form-grid,
+.info-grid,
+.summary-grid,
+.page-actions {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.server-stack {
+    align-content: center;
+}
+
+.brand-banner,
+.notice-card,
+.summary-card,
+.table-card,
+.form-card {
+    border-radius: 20px;
+    border: 1px solid #dbe8ff;
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    padding: 1rem;
+}
+
+.brand-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.brand-banner img {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff7dc 0%, #ffe28c 100%);
+    padding: 0.45rem;
+}
+
+.form-grid {
+    grid-template-columns: 1fr;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: bold;
+}
+
+.form-field input {
+    width: 100%;
+    border: 1px solid #cfe1ff;
+    border-radius: 14px;
+    padding: 0.85rem 0.9rem;
+    font: inherit;
+    color: var(--text);
+    background: #ffffff;
+}
+
+.form-field input:focus {
+    outline: 2px solid rgba(47, 109, 246, 0.2);
+    border-color: #8bb5ff;
+}
+
+.feedback-text {
+    margin-top: 0.45rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.feedback-error {
+    color: var(--danger);
+}
+
+.notice-card p:last-child,
+.summary-card p:last-child,
+.form-card p:last-child {
+    margin-bottom: 0;
+}
+
+.status-banner {
+    border-radius: 16px;
+    padding: 0.85rem 0.95rem;
+    font-weight: bold;
+}
+
+.status-success {
+    background: #edf8f0;
+    border: 1px solid #b8e0c2;
+    color: #2a6536;
+}
+
+.status-error {
+    background: #fff1f3;
+    border: 1px solid #f0bcc4;
+    color: #9e2740;
+}
+
+.player-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    background: #eef4ff;
+    color: var(--primary-dark);
+    font-size: 0.92rem;
+    font-weight: bold;
+}
+
+.info-grid,
+.summary-grid {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.summary-value {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.summary-label {
+    display: block;
+    color: var(--muted);
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.page-actions {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.button-link {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.table-card {
+    overflow-x: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+}
+
+.results-table th,
+.results-table td {
+    padding: 0.8rem 0.75rem;
+    border-bottom: 1px solid #e2ebff;
+    text-align: left;
+}
+
+.results-table th {
+    color: var(--muted);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.inline-form {
+    margin-top: 1rem;
+}
+
+.hidden-summary {
+    display: none !important;
+}
+
+.final-actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0.95rem;
+}
+
+.final-actions .primary-button {
+    width: 100%;
+}
+
+.muted-note {
+    color: var(--muted);
+}
+
+@media (min-width: 640px) {
+    .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .final-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+    }
+}
