@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chapter 18 - Template Exercise</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #box { border: 1px solid #ccc; padding: 14px; max-width: 750px; }
+    .note { color: #555; }
+  </style>
+</head>
+
+<body>
+  <h1>Template Exercise</h1>
+
+  <div id="box">
+    <p class="note">Paragraphs will appear here.</p>
+  </div>
+
+  <!-- Script AFTER the div (as required) -->
+  <script>
+    const box = document.getElementById("box");
+
+    function makeParagraphs() {
+      const rawCount = prompt("How many paragraph elements do you want?");
+      if (rawCount === null) return;
+
+      const count = Number(rawCount);
+      if (!Number.isInteger(count) || count <= 0) {
+        alert("Please enter a positive integer.");
+        return;
+      }
+
+      const sentence = prompt("Type a sentence to use as the content:");
+      if (sentence === null) return;
+
+      let html = "";
+      for (let i = 0; i < count; i++) {
+        html += "<p>" + sentence + "</p>";
+      }
+      box.innerHTML = html;
+    }
+
+    // Function for the next exercise: change all <p> text using querySelectorAll
+    function changeAllParagraphs() {
+      const newText = prompt("Enter new text for every paragraph:");
+      if (newText === null) return;
+
+      const paragraphs = document.querySelectorAll("p");
+      for (let p of paragraphs) {
+        p.innerHTML = newText;
+      }
+    }
+
+    // Run the creation once automatically on load
+    makeParagraphs();
+
+    // Expose function to console (so you can run it later)
+    window.changeAllParagraphs = changeAllParagraphs;
+  </script>
+</body>
+</html>

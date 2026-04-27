@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example Canvas Animation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script>
+        class Ball {
+            constructor(x, y, xSpeed, ySpeed) {
+                this.x = x;
+                this.y = y;
+                this.xSpeed = xSpeed;
+                this.ySpeed = ySpeed;
+                this.red = 255;
+                this.green = 0;
+                this.blue = 0;
+                this.radius = 5;
+            }
+
+            setColor(red, green, blue) {
+                this.red = red;
+                this.green = green;
+                this.blue = blue;
+            }
+
+            moveOneStep() {
+                this.x += this.xSpeed;
+                this.y += this.ySpeed;
+            }
+
+            draw(ctx) {
+                ctx.fillStyle = "rgb(" + this.red + "," + this.green + "," + this.blue + ")";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        window.addEventListener("load", function (event) {
+            const balls = [];
+            let timerId;
+
+            const c = document.getElementById("animationCanvas");
+            const ctx = c.getContext("2d");
+
+            let i;
+            for (i = 0; i < 500; i++) {
+                const ball = new Ball(
+                    Math.random() * c.width,
+                    Math.random() * c.height,
+                    Math.random() * 6 - 3,
+                    Math.random() * 6 - 3
+                );
+                ball.setColor(
+                    Math.floor(Math.random() * 256),
+                    Math.floor(Math.random() * 256),
+                    Math.floor(Math.random() * 256)
+                );
+                ball.radius = Math.random() * 6 + 2;
+                balls.push(ball);
+            }
+
+            function startAnimation() {
+                timerId = setInterval(updateAnimation, 16);
+                console.log("Animation Started");
+            }
+
+            function stopAnimation() {
+                clearTimeout(timerId);
+                console.log("Animation Stopped");
+            }
+
+            function updateAnimation() {
+                ctx.clearRect(0, 0, c.width, c.height);
+
+                let i;
+                for (i = 0; i < balls.length; i++) {
+                    balls[i].moveOneStep();
+                    balls[i].draw(ctx);
+                }
+
+                let allOut = true;
+                for (i = 0; i < balls.length; i++) {
+                    if (balls[i].x >= 0 - balls[i].radius &&
+                        balls[i].x <= c.width + balls[i].radius &&
+                        balls[i].y >= 0 - balls[i].radius &&
+                        balls[i].y <= c.height + balls[i].radius) {
+                        allOut = false;
+                    }
+                }
+
+                if (allOut) {
+                    stopAnimation();
+                }
+            }
+
+            startAnimation();
+        });
+    </script>
+</head>
+
+<body style='text-align:center;'>
+    <canvas id='animationCanvas' width='768' height='400' style='background-color:black;'></canvas>
+</body>
+
+</html>

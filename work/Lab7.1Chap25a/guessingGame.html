@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guessing Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #wrapper {
+            width: 450px;
+            margin: auto;
+            background-color: blanchedalmond;
+            padding: 20px;
+        }
+
+        input,
+        button {
+            font-size: 18px;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        class GuessingGame {
+            constructor() {
+                this.target = Math.floor(Math.random() * 100 + 1);
+                this.guessCount = 0;
+                this.gameOver = false;
+            }
+
+            guess(number) {
+                if (this.gameOver) {
+                    return "gameover";
+                }
+
+                this.guessCount = this.guessCount + 1;
+
+                if (number === this.target) {
+                    this.gameOver = true;
+                    return "correct";
+                }
+                if (number < this.target) {
+                    if (this.guessCount >= 10) {
+                        this.gameOver = true;
+                        return "lose";
+                    }
+                    return "low";
+                }
+                if (this.guessCount >= 10) {
+                    this.gameOver = true;
+                    return "lose";
+                }
+                return "high";
+            }
+        }
+
+        window.addEventListener("load", function () {
+            const guessBox = document.getElementById("guessBox");
+            const output = document.getElementById("output");
+            const count = document.getElementById("count");
+            let game;
+
+            function saveGame() {
+                localStorage.setItem("guessingGame", JSON.stringify(game));
+            }
+
+            function newGame() {
+                game = new GuessingGame();
+                saveGame();
+                updateView("New game started.");
+            }
+
+            function loadGame() {
+                const saved = localStorage.getItem("guessingGame");
+                if (saved !== null) {
+                    const data = JSON.parse(saved);
+                    game = new GuessingGame();
+                    game.target = data.target;
+                    game.guessCount = data.guessCount;
+                    game.gameOver = data.gameOver;
+                    updateView("Saved game resumed.");
+                } else {
+                    newGame();
+                }
+            }
+
+            function updateView(message) {
+                output.textContent = message;
+                count.textContent = "Guess count: " + game.guessCount;
+            }
+
+            document.getElementById("guessButton").addEventListener("click", function () {
+                const value = Number(guessBox.value);
+                const result = game.guess(value);
+
+                if (result === "correct") {
+                    updateView("Correct! Starting a new game.");
+                    newGame();
+                } else if (result === "low") {
+                    updateView("Too low.");
+                    saveGame();
+                } else if (result === "high") {
+                    updateView("Too high.");
+                    saveGame();
+                } else if (result === "lose") {
+                    updateView("Game over. The number was " + game.target + ". Starting a new game.");
+                    newGame();
+                } else {
+                    updateView("This game is already over.");
+                    saveGame();
+                }
+
+                guessBox.value = "";
+            });
+
+            loadGame();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Guessing Game</h1>
+        <p>Guess a number from 1 to 100.</p>
+        <input id="guessBox" type="number">
+        <button id="guessButton">Guess</button>
+        <p id="output"></p>
+        <p id="count"></p>
+    </div>
+</body>
+
+</html>

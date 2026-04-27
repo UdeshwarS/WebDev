@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example Canvas Animation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script type='text/javascript'>
+        window.addEventListener("load", function (event) {
+            const ball = {
+                x: 0, y: 0,
+                xSpeed: 2, ySpeed: 1,
+                red: 0, green: 0, blue: 0,
+                radius: 50
+            };
+            let timerId;
+
+            const c = document.getElementById("animationCanvas");
+            const ctx = c.getContext("2d");
+
+            function startAnimation() {
+                timerId = setInterval(updateAnimation, 16);
+                console.log("Animation Started");
+            }
+
+            function stopAnimation() {
+                clearTimeout(timerId);
+                console.log("Animation Stopped");
+            }
+
+            function updateAnimation() {
+                ball.x = ball.x + ball.xSpeed;
+                ball.y = ball.y + ball.ySpeed;
+                if (ball.radius > 1) {
+                    ball.radius = ball.radius - 0.2;
+                }
+                if (ball.red < 255) {
+                    ball.red = ball.red + 1;
+                }
+
+                ctx.clearRect(0, 0, c.width, c.height);
+
+                ctx.fillStyle = "rgb(" + ball.red + ",0,0)";
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+
+                if (ball.x >= c.width + ball.radius || ball.y >= c.height + ball.radius) {
+                    stopAnimation();
+                }
+            }
+
+            startAnimation();
+        });
+    </script>
+</head>
+
+<body style='text-align:center;'>
+    <canvas id='animationCanvas' width='768' height='400' style='background-color:white;'></canvas>
+</body>
+
+</html>

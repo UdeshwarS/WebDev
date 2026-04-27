@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Move Me</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    #container {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 500px;
+      height: 500px;
+      border: 10px solid black;
+      border-radius: 70px;
+    }
+
+    #moveme {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      border-radius: 100px;
+      border: 10px solid black;
+    }
+  </style>
+
+  <script>
+    const step = 20;
+    let x = 0;
+    let y = 0;
+
+    function clamp(v, min, max) {
+      if (v < min) return min;
+      if (v > max) return max;
+      return v;
+    }
+
+    function bounds() {
+      const container = document.getElementById("container");
+      const ball = document.getElementById("moveme");
+      return {
+        maxX: container.clientWidth - ball.clientWidth,
+        maxY: container.clientHeight - ball.clientHeight
+      };
+    }
+
+    function applyPos() {
+      const ball = document.getElementById("moveme");
+      ball.style.left = x + "px";
+      ball.style.top = y + "px";
+    }
+
+    // Part A
+    function moveRandomConfirm() {
+      const ok = confirm("Move the circle to a random position?");
+      if (!ok) return;
+
+      const b = bounds();
+      x = Math.floor(Math.random() * (b.maxX + 1));
+      y = Math.floor(Math.random() * (b.maxY + 1));
+      applyPos();
+    }
+
+    // Part B + C
+    function moveByPrompt() {
+      const raw = prompt("Enter U, D, L, R, or Q:");
+      if (raw === null) return;
+
+      const cmd = raw.trim().toUpperCase();
+      if (cmd === "Q") return;
+
+      if (cmd === "U") y -= step;
+      else if (cmd === "D") y += step;
+      else if (cmd === "L") x -= step;
+      else if (cmd === "R") x += step;
+      else return;
+
+      const b = bounds();
+      x = clamp(x, 0, b.maxX);
+      y = clamp(y, 0, b.maxY);
+      applyPos();
+    }
+
+    window.moveRandomConfirm = moveRandomConfirm;
+    window.moveByPrompt = moveByPrompt;
+  </script>
+</head>
+
+<body>
+  <p style="position:absolute; left:50px; top:10px;">
+    Run from console: <b>moveRandomConfirm()</b> or <b>moveByPrompt()</b>
+  </p>
+
+  <div id="container">
+    <div id="moveme"></div>
+  </div>
+</body>
+</html>

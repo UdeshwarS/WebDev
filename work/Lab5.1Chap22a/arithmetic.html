@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arithmetic</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+        body {
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        input[type=number],
+        input[type=text],
+        select {
+            width: 50px;
+            font-family: sans-serif;
+            text-align: right;
+            font-size: 20px;
+        }
+
+        #wrapper {
+            margin: auto;
+            width: 380px;
+            background-color: blanchedalmond;
+            padding: 10px;
+            padding-top: 0px;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            const number1 = document.getElementById("number1");
+            const number2 = document.getElementById("number2");
+            const operation = document.getElementById("operation");
+            const result = document.getElementById("result");
+
+            function updateResult() {
+                const value1 = Number(number1.value);
+                const value2 = Number(number2.value);
+                const op = operation.value;
+                let answer;
+
+                if (op === "+") {
+                    answer = value1 + value2;
+                } else if (op === "-") {
+                    answer = value1 - value2;
+                } else if (op === "*") {
+                    answer = value1 * value2;
+                } else if (op === "/") {
+                    answer = value1 / value2;
+                } else {
+                    answer = value1 % value2;
+                }
+
+                result.value = answer;
+            }
+
+            number1.addEventListener("input", updateResult);
+            number2.addEventListener("input", updateResult);
+            operation.addEventListener("change", updateResult);
+
+            updateResult();
+        });
+    </script>
+</head>
+
+<body>
+    <div id='wrapper'>
+        <header>
+            <h1>I Heart Arithmetic...</h1>
+        </header>
+        <form>
+            <input id="number1" type="number" value="2">
+            <select id="operation">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+                <option>%</option>
+            </select>
+            <input id="number2" type="number" value="2"> =
+            <input id="result" type='text' readonly>
+        </form>
+    </div>
+</body>
+
+</html>

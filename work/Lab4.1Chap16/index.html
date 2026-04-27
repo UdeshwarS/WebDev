@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lab 4.1 - Chapter 16 Quiz</title>
+</head>
+<body>
+  <h1>Chapter 16 Arithmetic Quiz</h1>
+  <p>If you see this, the script finished (or you cancelled).</p>
+
+  <script>
+    function randomIntMinus100To100() {
+      return Math.floor(Math.random() * 201) - 100;
+    }
+
+    function askOneQuestion() {
+      const a = randomIntMinus100To100();
+      const b = randomIntMinus100To100();
+      const correct = a + b;
+
+      while (true) {
+        const userInput = prompt("What is " + a + " + " + b + " ?");
+
+        // If user presses Cancel on prompt, treat it like quitting this question
+        if (userInput === null) {
+          alert("You cancelled the question.");
+          return false; // did not complete question
+        }
+
+        const userAnswer = Number(userInput);
+
+        if (Number.isNaN(userAnswer)) {
+          alert("Please enter a number.");
+        } else if (userAnswer === correct) {
+          alert("Correct! Nice work.");
+          return true; // got it right
+        } else {
+          alert("Not quite. Try again.");
+        }
+      }
+    }
+
+    // Main loop: ask questions until they press Cancel on the confirm dialog
+    while (true) {
+      const finishedQuestion = askOneQuestion();
+
+      // If they cancelled the prompt, we still ask if they want another question
+      const again = confirm("Would you like another question? (OK = yes, Cancel = no)");
+      if (!again) {
+        document.write("<p><strong>Goodbye!</strong> Thanks for playing.</p>");
+        break;
+      }
+    }
+  </script>
+</body>
+</html>

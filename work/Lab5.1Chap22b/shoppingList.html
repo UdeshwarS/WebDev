@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #wrapper {
+            width: 400px;
+            margin: auto;
+            background-color: blanchedalmond;
+            padding: 20px;
+        }
+
+        input,
+        button {
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        ol {
+            text-align: left;
+            width: 250px;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            const itemBox = document.getElementById("itemBox");
+            const list = document.getElementById("shoppingList");
+            const items = [];
+
+            function refreshList() {
+                let i;
+                list.innerHTML = "";
+                for (i = 0; i < items.length; i++) {
+                    list.innerHTML += "<li>" + items[i] + "</li>";
+                }
+            }
+
+            document.getElementById("addButton").addEventListener("click", function () {
+                const item = itemBox.value.trim();
+                if (item !== "") {
+                    items.push(item);
+                    refreshList();
+                    itemBox.value = "";
+                }
+            });
+
+            document.getElementById("deleteButton").addEventListener("click", function () {
+                const item = itemBox.value.trim();
+                const index = items.indexOf(item);
+                if (index !== -1) {
+                    items.splice(index, 1);
+                    refreshList();
+                }
+                itemBox.value = "";
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Shopping List App</h1>
+        <input id="itemBox" type="text" placeholder="Enter item">
+        <button id="addButton">Add</button>
+        <button id="deleteButton">Delete</button>
+        <ol id="shoppingList"></ol>
+    </div>
+</body>
+
+</html>

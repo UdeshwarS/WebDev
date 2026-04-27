@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+Finish this program by filling in JavaScript that checks if the user’s answer to
+the addition question is correct, and then display “Correct” or “Incorrect” on the
+web page by changing the innerHTML of the <h1> element.
+
+Sam Scott, McMaster University, 2025
+-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>addition</title>
+
+  <style>
+    .bad-h1 {
+      background: red;
+      border: 8px solid black;
+      color: white;
+      padding: 12px;
+    }
+  </style>
+
+  <script>
+    function addition() {
+      const op1 = Math.floor(Math.random() * 200 - 100);
+      const op2 = Math.floor(Math.random() * 200 - 100);
+
+      const h1 = document.getElementById("result");
+
+      // reset styles each run
+      h1.classList.remove("bad-h1");
+      h1.style.color = "";
+
+      const raw = prompt("What is " + op1 + " + " + op2 + "?");
+      if (raw === null) {
+        h1.innerHTML = "Cancelled";
+        return;
+      }
+
+      const userNum = Number(raw);
+
+      // invalid -> class on h1
+      if (!Number.isFinite(userNum)) {
+        h1.classList.add("bad-h1");
+        h1.innerHTML = "Invalid input (not a number)";
+        return;
+      }
+
+      const correct = (userNum === op1 + op2);
+
+      if (correct) {
+        h1.innerHTML = "Correct";
+        h1.style.color = "green";
+      } else {
+        h1.innerHTML = "Incorrect (answer was " + (op1 + op2) + ")";
+        h1.style.color = "red";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <p>Run addition() from the console to get going.</p>
+  <h1 id="result"></h1>
+</body>
+
+</html>
