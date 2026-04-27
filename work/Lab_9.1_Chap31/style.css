@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.machine {
+    width: min(900px, 100%);
+    background: #b91c1c;
+    border: 8px solid #7f1d1d;
+    border-radius: 24px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 2.2rem;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: #fee2e2;
+}
+
+.display-window {
+    background: #fef3c7;
+    border: 6px solid #d97706;
+    border-radius: 20px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+}
+
+.wheel {
+    margin: 0;
+    background: #ffffff;
+    border: 4px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 16px;
+    color: #111827;
+}
+
+.wheel img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+}
+
+.wheel figcaption {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.result-card {
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.result-card h2 {
+    margin: 0 0 6px;
+}
+
+.result-card p {
+    margin: 0;
+}
+
+.lose {
+    background: #374151;
+}
+
+.win {
+    background: #065f46;
+}
+
+.jackpot {
+    background: #7c3aed;
+}
+
+.spin-button {
+    display: inline-block;
+    background: #fbbf24;
+    color: #111827;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 24px;
+    border-radius: 999px;
+}
+
+.spin-button:hover {
+    background: #f59e0b;
+}
+
+@media (max-width: 700px) {
+    .display-window {
+        grid-template-columns: 1fr;
+    }
+}

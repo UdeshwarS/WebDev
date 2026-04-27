@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.panel {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    border: 1px solid #d1d5db;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.intro {
+    color: #4b5563;
+}
+
+form {
+    display: grid;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+button {
+    font: inherit;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #9ca3af;
+}
+
+button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.secondary {
+    background: #6b7280;
+}
+
+.secondary:hover {
+    background: #4b5563;
+}
+
+.small-message {
+    min-height: 1.25rem;
+    margin: -4px 0 4px;
+    color: #1d4ed8;
+}
+
+.message {
+    border-radius: 12px;
+    padding: 14px;
+    font-weight: bold;
+}
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.bill-output {
+    margin: 0 0 20px;
+}
+
+.bill-output div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.bill-output dt {
+    font-weight: bold;
+}
+
+.bill-output dd {
+    margin: 0;
+    text-align: right;
+}
+
+.total-row {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+    .page {
+        grid-template-columns: 1fr;
+    }
+}
