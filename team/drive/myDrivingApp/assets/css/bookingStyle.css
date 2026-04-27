@@ -1,0 +1,143 @@
+/*
+    File: bookingStyle.css
+    Description: CSS external stylesheet for the booking form page, including layout, inputs,
+                 buttons, and error messages.
+    Group Member Names: Akil Kanwar, Anas Hayat, Ayesha Hasan, Udeshwar Singh Sandhu
+    Date: April 22, 2026
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+    background-color: #f2f4f7;
+
+}
+
+.card {
+    border: 2px solid #cccccc;
+    padding: 32px 32px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.card h1 {
+    color: #cfa24a;
+    text-decoration: underline;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field p {
+    color: #3d5e89;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 10px 12px;
+    font-size: 16px;
+    color: #3d5e89;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+    overflow: auto;
+    min-height: 100px;
+}
+
+.btn {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    background-color: #cfa24a;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border: 2px solid #aaaaaa;
+    outline: none;
+}
+
+input[type="date"]::placeholder,
+input[type="time"]::placeholder {
+    color: #aaaaaa;
+}
+
+/* Error message styling */
+#error-message {
+    display: none;
+    text-align: center;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 14px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 24px 16px;
+    }
+
+    .card h1 {
+        font-size: 22px;
+    }
+
+    .field p {
+        font-size: 12px;
+    }
+
+    .field input,
+    .field textarea {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}

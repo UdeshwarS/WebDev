@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f4f7;
+    color: #3d5e89;
+    font-size: 18px;
+}
+
+/* NAVBAR */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-left {
+    display: flex;
+    gap: 15px;
+}
+
+/* BUTTONS */
+.yellow-btn {
+    background-color: #dbaf44;
+    color: #3d5e89;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.blue-btn {
+    background-color: #3d5e89;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero-box {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 100px 20px;
+    text-align: center;
+    border-radius: 10px;
+
+    background-image: url("../images/interior.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.hero-box h1 {
+    font-size: 55px;
+}
+
+.hero-box h2 {
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+.gold {
+    color: #dbaf44;
+}
+
+.blue {
+    color: #3d5e89;
+}
+
+.yellow-btn {
+    background-color: #dbaf44;
+    color: #3d5e89;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.blue-btn {
+    background-color: #3d5e89;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* HOVER EFFECT */
+.yellow-btn:hover {
+    background-color: #c79c35;
+}
+
+.blue-btn:hover {
+    background-color: #2f4c70;
+}
+
+/* CLICK (ACTIVE) EFFECT */
+.yellow-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.blue-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+/* CONTENT (simple stacked layout) */
+.content {
+    width: 95%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* SECTIONS */
+.about-instructor,
+.testimonial,
+.gallery,
+#contact {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+blockquote,.student-name {
+    margin-left:50px;
+    margin-right:50px;
+}
+
+/* TEXT */
+h2 {
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+/* TESTIMONIAL */
+blockquote {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.student-name {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.gallery-container img {
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+    background-color: #3d5e89;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+@media (max-width: 700px) {
+    .content {
+        width: 90%;
+    }
+}
+
+/* MOBILE NAV STACK */
+@media (max-width: 700px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-left,
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #main {
+        text-align:center;
+        font-size:35px;
+    }
+
+    #slogan{
+        text-align:center;
+        font-size:18px;
+    }
+
+    h2,h3 {
+        font-size:20px;
+    }
+
+    body {
+        font-size:15px;
+    }
+}

@@ -1,0 +1,256 @@
+/*
+    File: dashboardStyle.css
+    Description: CSS external stylesheet for dashboard pages.
+    Group Member Names: Akil Kanwar, Anas Hayat, Ayesha Hasan, Udeshwar Singh Sandhu
+    Date: April 22, 2026
+*/
+
+.dashboard-title {
+    text-align: center;
+    font-size: 40px;
+    color: #3d5e89;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.dashboard-message {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 25px auto;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid transparent;
+}
+
+.success-message {
+    background-color: #eaf1f8;
+    color: #2f4c70;
+    border: 1px solid #c7d7ea;
+}
+
+.error-message {
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+}
+
+.dashboard {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.student-dashboard-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.dashboard-grid {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto 50px auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.dashboard-card {
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-card h2 {
+    font-size: 30px;
+    color: #3d5e89;
+    margin-bottom: 20px;
+}
+
+.bookings-card {
+    flex: 2 1 700px;
+}
+
+.hours-card {
+    flex: 1 1 260px;
+    text-align: center;
+    min-height: 260px;
+}
+
+.wide-card {
+    grid-column: span 2;
+}
+
+.form-card {
+    grid-column: 1 / -1;
+    /* max-width: 700px; */
+    width: 100%;
+    justify-self: center;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    border: 1px solid #d7d7d7;
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 14px;
+}
+
+.dashboard-table th {
+    background-color: #3d5e89;
+    color: white;
+}
+
+.dashboard-table td {
+    background-color: #ffffff;
+}
+
+.empty-table-message {
+    color: #666666;
+    font-style: italic;
+    padding: 18px;
+}
+
+.hours-number {
+    font-size: 72px;
+    font-weight: bold;
+    color: #dbaf44;
+    margin-top: 20px;
+}
+
+.hours-subtitle {
+    margin-top: 10px;
+    color: #5a6f8d;
+}
+
+.dashboard-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-form label {
+    font-weight: bold;
+    color: #3d5e89;
+}
+
+.dashboard-form input {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.full-width-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.inline-form {
+    margin: 0;
+}
+
+.table-action-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.warning-btn {
+    background-color: #dbaf44;
+    color: #3d5e89;
+}
+
+.delete-btn {
+    background-color: #dbaf44;
+    color: white;
+}
+
+.approve-btn {
+    background-color: #3d5e89;
+    color: white;
+}
+
+.completed-label,
+.pending-label,
+.cancelled-label {
+    font-weight: bold;
+    color: #5f6f82;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-confirmed {
+    background-color: #eaf1f8;
+    color: #2f4c70;
+}
+
+.status-completed {
+    background-color: #eaf1f8;
+    color: #2f4c70;
+}
+
+.status-cancel_requested {
+    background-color: #fff5dd;
+    color: #8a6a14;
+}
+
+.status-cancelled {
+    background-color: #f1f1f1;
+    color: #5b5b5b;
+}
+
+.first-time-student {
+    color: #dbaf44;
+}
+
+@media (max-width: 1000px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wide-card,
+    .form-card {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard-title {
+        font-size: 28px;
+    }
+
+    .dashboard-card h2 {
+        font-size: 24px;
+    }
+
+    .dashboard-table th,
+    .dashboard-table td {
+        font-size: 12px;
+        padding: 10px 6px;
+    }
+
+    .hours-number {
+        font-size: 56px;
+    }
+}

@@ -1,0 +1,319 @@
+/*
+Author: Udeshwar Singh Sandhu
+Date: 2026-02-01
+Description: Styling for a news homepage with desktop, tablet, and mobile layouts using flexbox and media queries.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.page {
+    margin: 10px;
+}
+
+.site-header {
+    padding: 0;
+}
+
+.masthead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-icon {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.menu-icon--mobile {
+    display: none;
+}
+
+.menu-icon--tablet {
+    display: none;
+}
+
+.site-title {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 0.5px;
+    padding: 10px 0;
+    border-bottom: 3px solid #222;
+}
+
+.nav-row {
+    margin-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.sections a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #222;
+    padding: 6px 12px;
+    border-right: 2px solid #ddd;
+}
+
+.sections a:first-child {
+    border-left: 2px solid #ddd;
+}
+
+@media (min-width: 481px) {
+    .sections a:hover {
+        background: #efefef;
+    }
+}
+
+.content {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.lead {
+    flex: 2 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.rail {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.rail-row {
+    display: flex;
+    gap: 10px;
+}
+
+.rail-row .story {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.story {
+    border: 2px solid #ddd;
+    padding: 8px;
+    background: #fff;
+}
+
+.story img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #eee;
+}
+
+.headline {
+    margin: 8px 0;
+}
+
+.headline--big {
+    font-size: 24px;
+}
+
+.snippet {
+    margin: 0;
+    line-height: 1.35;
+}
+
+.source {
+    margin: 6px 0 0 0;
+    font-size: 12px;
+}
+
+.source a {
+    color: #333;
+    text-decoration: none;
+}
+
+.source a:hover {
+    text-decoration: underline;
+}
+
+.desktop-only {
+    display: inline;
+}
+
+.desktop-only-block {
+    display: block;
+}
+
+@media (min-width: 769px) {
+    .rail .headline {
+        font-size: 16px;
+        margin: 6px 0;
+    }
+
+    .rail .snippet {
+        font-size: 12px;
+        line-height: 1.25;
+    }
+
+    .rail .source {
+        font-size: 11px;
+    }
+}
+
+.site-footer {
+    margin-top: 10px;
+    border-top: 2px solid #ddd;
+    padding: 12px 10px;
+    display: flex;
+    gap: 10px;
+    background: #f2f2f2;
+}
+
+.site-footer section {
+    flex: 1;
+}
+
+.site-footer h4 {
+    margin: 0 0 6px 0;
+}
+
+.site-footer a {
+    display: block;
+    padding: 2px 0;
+    color: #222;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .menu-icon--tablet {
+        display: block;
+    }
+
+    .site-title {
+        font-size: 40px;
+    }
+
+    .sections .nav-other {
+        display: none;
+    }
+
+    .content {
+        flex-direction: row;
+    }
+
+    .lead {
+        flex: 2 1 0;
+    }
+
+    .rail {
+        flex: 1 1 0;
+    }
+
+    .rail-row {
+        flex-direction: column;
+    }
+
+    .rail-row .story {
+        width: 100%;
+    }
+
+    #story6,
+    #story7,
+    #story8 {
+        display: none;
+    }
+
+    #story3 .desktop-only,
+    #story4 .desktop-only,
+    #story5 .desktop-only {
+        display: none;
+    }
+
+    .story img {
+        max-height: 220px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background: #f6f6f6;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .menu-icon--mobile {
+        display: block;
+    }
+
+    .nav-row {
+        display: none;
+    }
+
+    .site-title {
+        font-size: 32px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .lead,
+    .rail {
+        width: 100%;
+    }
+
+    .rail-row {
+        flex-direction: column;
+    }
+
+    .rail-row .story {
+        width: 100%;
+    }
+
+    #story6,
+    #story7,
+    #story8 {
+        display: none;
+    }
+
+    #story3 .desktop-only,
+    #story4 .desktop-only,
+    #story5 .desktop-only {
+        display: none;
+    }
+
+    .story img {
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .site-footer {
+        flex-direction: column;
+    }
+}

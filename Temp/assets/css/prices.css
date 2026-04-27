@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f4f7;
+    color: #3d5e89;
+}
+
+/* NAVBAR */
+/* NAVBAR */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-left {
+    display: flex;
+    gap: 15px;
+}
+
+/* BUTTONS */
+.yellow-btn {
+    background-color: #dbaf44;
+    color: #3d5e89;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.blue-btn {
+    background-color: #3d5e89;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.gold { color: #dbaf44; }
+.blue { color: #3d5e89; }
+
+.yellow-btn {
+    background-color: #dbaf44;
+    color: #3d5e89;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.blue-btn {
+    background-color: #3d5e89;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* HOVER EFFECT */
+.yellow-btn:hover {
+    background-color: #c79c35;
+}
+
+.blue-btn:hover {
+    background-color: #2f4c70;
+}
+
+/* CLICK (ACTIVE) EFFECT */
+.yellow-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.blue-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+}
+
+.header h1 {
+    font-size: 45px;
+}
+
+.header p {
+    margin-top: 10px;
+    color: #666;
+}
+
+/* PRICING FLEX */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+/* PRICE BOX */
+.price-box {
+    background-color: white;
+    padding: 40px;
+    width: 300px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.featured {
+    border: 2px solid #3d5e89;
+}
+
+/* PRICE TEXT */
+.price {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.price span {
+    font-size: 16px;
+}
+
+/* LIST */
+ul {
+    text-align: left;
+    margin: 20px 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #3d5e89;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size:15px;
+}
+
+@media (max-width: 700px) {
+    .content {
+        width: 90%;
+    }
+}
+
+/* MOBILE NAV STACK */
+@media (max-width: 700px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-left,
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}

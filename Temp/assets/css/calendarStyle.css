@@ -1,0 +1,139 @@
+.dashboard-title {
+    text-align: center;
+    font-size: 42px;
+    color: #3d5e89;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.booking-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.calendar-box,
+.times-box {
+    background-color: #f7f7f7;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-box {
+    width: 500px;
+}
+
+.times-box {
+    width: 350px;
+    min-height: 350px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    color: #3d5e89;
+    font-size: 24px;
+}
+
+.small-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+.calendar-days,
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-days div {
+    text-align: center;
+    font-weight: bold;
+    color: #3d5e89;
+    padding: 10px 0;
+}
+
+.date-cell {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: white;
+    color: #3d5e89;
+    font-weight: bold;
+}
+
+.date-cell:hover {
+    background-color: #eaf1fb;
+}
+
+.empty {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+}
+
+.selected-date {
+    background-color: #dbaf44;
+    color: white;
+}
+
+.time-slots {
+    margin-top: 20px;
+}
+
+.time-slot {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.available {
+    background-color: #3d5e89;
+    color: white;
+}
+
+.available:hover {
+    background-color: #2f4c70;
+}
+
+.unavailable {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+
+    .calendar-box,
+    .times-box {
+        width: 100%;
+    }
+
+    h1 {
+        font-size:25px;
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+}

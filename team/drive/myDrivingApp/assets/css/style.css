@@ -1,0 +1,255 @@
+/*
+    File: style.css
+    Description: CSS external stylesheet for authentication pages.
+    Group Member Names: Akil Kanwar, Anas Hayat, Ayesha Hasan, Udeshwar Singh Sandhu
+    Date: April 22, 2026
+*/
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f4f7;
+    color: #3d5e89;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CARD */
+.auth-card {
+    background-color: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    padding: 48px;
+    /* increased padding for bigger look */
+    width: 100%;
+    max-width: 550px;
+    /* wider form */
+}
+
+.auth-container {
+    background-color: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    padding: 48px;
+    /* increased padding for bigger look */
+    width: 100%;
+    max-width: 550px;
+    /* wider form */
+}
+
+/* HEADER */
+.auth-card h1 {
+    color: #cfa24a;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 32px;
+    /* more space below header */
+    font-size: 36px;
+    /* bigger font */
+}
+
+/* FORM FIELDS */
+.form-group {
+    margin-bottom: 20px;
+    /* slightly bigger spacing */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    /* bigger text */
+    margin-bottom: 8px;
+    color: #3d5e89;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    /* bigger input height */
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+    /* larger text inside input */
+    color: #3d5e89;
+}
+
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 16px;
+    /* taller button */
+    background-color: #cfa24a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    /* bigger font on button */
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* LINK TEXT */
+.link-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    /* bigger link text */
+}
+
+.link-text a {
+    color: #3d5e89;
+    text-decoration: none;
+}
+
+.link-text a:hover {
+    text-decoration: underline;
+}
+
+/* ERROR MESSAGE */
+.error-msg {
+    display: none;
+}
+
+.error-msg.show {
+    display: block;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.server-error {
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+
+}
+
+.server-success {
+    background-color: #eaf1f8;
+    color: #2f4c70;
+    border: 1px solid #c7d7ea;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#name-error {
+    display: none;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#email-error {
+    display: none;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#phone_number-error {
+    display: none;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#password-error {
+    display: none;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#role-error {
+    display: none;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#license_type-error {
+    display: none;
+    background-color: #fff8e1;
+    color: #cfa24a;
+    border: 1px solid #ffe29c;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .auth-card {
+        padding: 32px;
+        max-width: 90%;
+    }
+
+    .auth-card h1 {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .btn,
+    .link-text {
+        font-size: 16px;
+    }
+}
