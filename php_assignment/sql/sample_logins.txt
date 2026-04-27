@@ -1,0 +1,8 @@
+Sample emails and birth dates for grading / testing:
+
+alex@campuscart.ca     2004-03-18
+maya@campuscart.ca     2003-11-04
+samir@campuscart.ca    2005-06-12
+zoe@campuscart.ca      2004-08-29
+liam@campuscart.ca     2003-01-20
+priya@campuscart.ca    2004-12-10
